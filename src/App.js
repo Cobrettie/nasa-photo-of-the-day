@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
+import Title from "./components/PhotoOfDay/Title";
 import Photo from "./components/PhotoOfDay/Photo";
 import "./App.css";
+import Explanation from "./components/PhotoOfDay/Explanation";
 
 function App() {
   // using useState hook to allow us to return the title inside of our .then() promise 
@@ -16,7 +18,11 @@ function App() {
   // setting state to an empty object, since we are expecting to return an object later on
   const [data, setData] = useState({});
 
-  // useEffect hook
+  // useEffect hook, allowing code to run SOMETIMES
+  // useEffect takes a callback function as its first argument
+  // then takes code that we want to delay the execution on,
+  // then it takes a second argument as an array of data
+  // when any data changes inside of the array since the last time the component was rendered or ran, useEffect is going to run the callback function
   useEffect(() => {
     // implement axios, get data from API
   axios
@@ -31,17 +37,11 @@ function App() {
   return (
     <div className="App">
       {/* giving our Photo component data via props */}
+      <Title title={data.title} />
       <Photo
-        title={data.title}
         url={data.url}
-        date={data.date}
-        explanation={data.explanation} 
-        // title={props.title} 
-        // image={props.image}
-        // explanation={props.explanation}
-        // data={props.date}
       />
-
+      <Explanation explanation={data.explanation} />
     </div>
   );
 }
