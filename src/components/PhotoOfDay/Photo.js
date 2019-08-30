@@ -5,14 +5,15 @@ function Photo(props) {
     // console.log(props); 
     if (!props.url) {
         return <h3>Loading...</h3>
-    }
-    return (
+    } else {
+        return (
         <div>
             <img alt="from space!" src={props.url} />
             <p>{props.date}</p>
             <p>{props.explanation}</p>
         </div>
-    );
+        );
+    }
 }
 
 export default Photo;
