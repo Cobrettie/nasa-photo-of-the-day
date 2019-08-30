@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Title from "./components/PhotoOfDay/Title";
 import Photo from "./components/PhotoOfDay/Photo";
-import "./App.css";
 import Explanation from "./components/PhotoOfDay/Explanation";
+import Date from "./components/PhotoOfDay/Date";
+
+import "./App.css";
 
 function App() {
   // using useState hook to allow us to return the title inside of our .then() promise 
@@ -41,6 +43,7 @@ function App() {
       <Photo
         url={data.url}
       />
+      <Date date={data.date} />
       <Explanation explanation={data.explanation} />
     </div>
   );
