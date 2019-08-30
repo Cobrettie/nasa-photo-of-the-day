@@ -2,7 +2,10 @@ import React from "react";
 
 function Photo(props) {
     // console.log props at the top of components to see what is going on "behind the scenes"
-    // console.log(props);
+    // console.log(props); 
+    if (!props.url) {
+        return <h3>Loading...</h3>
+    }
     return (
         <div>
             <img alt="from space!" src={props.url} />

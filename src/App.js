@@ -30,8 +30,9 @@ function App() {
   axios
       .get("https://api.nasa.gov/planetary/apod?api_key=G5NmnWzWPh41tHLHJMzmEBBvb6bhYH6u9lPg4dWK")
       .then(res => {
-        // allows us to see what is being returned from the response
+        // console log allows us to see what is being returned from the response
         console.log(res.data);
+        // calling setData is performing a side effect
         setData(res.data);
       });
   }, []);
